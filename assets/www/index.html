@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="cordova.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="HelloPlugin.js"></script> 
+<script type="text/javascript" charset="utf-8" src="img.js"></script> 
+</head>
+
+<script type="text/javascript">
+function onBodyLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady(){
+	alert("Pronto!");
+}
+
+function add() {
+    var startDate = new Date("July 19, 2013 8:00:00");
+    var endDate = new Date("July 19, 2013 18:00:00");
+    var notes = "Arrive on time, don't want to miss out (from Android)";
+    var title = "PhoneGap Day";
+    var location = "Portland, OR";
+    var notes = "Arrive on time, don't want to miss out!";
+    var success = function() { alert("Success"); };
+    var error = function(message) { alert("Oopsie! " + message); };
+    calendarPlugin.createEvent(title, location, notes, startDate, endDate, success, error);
+}
+
+function setP(){
+	var title = "http://www.maxjogosonline.com.br/wp-content/uploads/2013/07/naruto.png"; 
+	var success = function() { alert("Success"); };
+    var error = function(message) { alert("Oopsie! " + message); };
+    imgPlugin.aplica(title, success, error);
+}
+</script>
+
+<body onload="onBodyLoad()"> 
+     <h1>Hey, it's Cordova!</h1> 
+      <button onclick="setP()">Click to invoke the Native Plugin with an SUCCESS!</button> 
+      <div id="images"></div>
+</body>
+</html>
