@@ -46,7 +46,7 @@ function procurarImg() {
 					});
 }
 
-function troca() {
+function proximo() {
 	var img = document.getElementById("img");
 	var ind = img.getAttribute("data-indice");
 	ind = parseInt(ind) + 1;
@@ -57,18 +57,35 @@ function troca() {
 	document.getElementById("images").appendChild(imagens[ind]);
 }
 
+
+function volta() {
+	var img = document.getElementById("img");
+	var ind = img.getAttribute("data-indice");
+	ind = parseInt(ind) - 1;
+	if (ind == 0) {
+		ind = 10;
+	}
+	document.getElementById("images").removeChild(img);
+	document.getElementById("images").appendChild(imagens[ind]);
+}
+
+
 function onBodyLoad() {
 	document.addEventListener("deviceready", onDeviceReady, false);
 }
+
 
 function onDeviceReady() {
 
 	var element = document.getElementById("images");
 	Hammer(element).on("swipeleft", function() {
-		troca();
+		proximo();
 	});
 	Hammer(element).on("doubletap", function() {
 		setP();
+	});
+	Hammer(element).on("swiperight",function(){
+		volta();
 	});
 	
 }

@@ -6,3 +6,16 @@ img {
 	width: auto;
 	height: auto;
 }
+
+
+body {
+	background-color: #D6D6D6;
+}
+
+input,button {
+	border-radius: 5px;
+}
+
+button {
+	background-color: #FFFFFF;
+}
