@@ -26,7 +26,7 @@ public class Img extends CordovaPlugin {
         if (action.equals(ACTION_SET_WALLPAPER)) {
         	Context ctx = this.cordova.getActivity().getApplicationContext();
             BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = 2;
+            options.inSampleSize = 1;
             WallpaperManager wallpaperManager = WallpaperManager.getInstance(ctx);
             
             try {
@@ -36,11 +36,9 @@ public class Img extends CordovaPlugin {
                 	Log.i("IMG",arg1.getString(0));
                 	bitmap = BitmapFactory.decodeStream(new URL(arg1.getString(0)).openStream(),null,options);
                 } catch (JSONException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 
-//                Bitmap bit=BitmapFactory.decodeStream(bitmap);
                 wallpaperManager.setBitmap(bitmap);
                 result = new PluginResult(Status.OK);
             } catch (IOException e) {
