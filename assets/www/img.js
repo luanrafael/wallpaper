@@ -90,6 +90,7 @@ function onDeviceReady() {
 	
 }
 
+
 function setP() {
 	var success = function() {
 		alert("Success");
